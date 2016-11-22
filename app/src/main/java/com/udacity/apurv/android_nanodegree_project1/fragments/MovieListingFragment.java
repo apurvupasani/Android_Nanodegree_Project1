@@ -32,6 +32,7 @@ public class MovieListingFragment extends Fragment {
 
     private static final String LOG_TAG = MovieListingFragment.class.getSimpleName();
     private MovieArrayAdapter movieArrayAdapter;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
@@ -62,21 +63,25 @@ public class MovieListingFragment extends Fragment {
         }
         return rootView;
     }
+
     @Override
     public void onStart() {
         super.onStart();
         performPopularMovieTaskExecution();
     }
+
     private void performPopularMovieTaskExecution() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String sortOrder = preferences.getString(getString(R.string.pref_sort_order_key), "");
         FetchMoviesTask task = new FetchMoviesTask(movieArrayAdapter, getContext());
         task.execute(sortOrder);
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_movielistingfragment, menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
