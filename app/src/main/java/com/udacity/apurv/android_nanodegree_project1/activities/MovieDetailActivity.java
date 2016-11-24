@@ -9,6 +9,9 @@ import android.view.MenuItem;
 import com.udacity.apurv.android_nanodegree_project1.R;
 import com.udacity.apurv.android_nanodegree_project1.fragments.MovieDetailActivityFragment;
 
+/**
+ * This activity is the details page activity used for setting up the movie detail page
+ */
 public class MovieDetailActivity extends ActionBarActivity {
 
     @Override
@@ -30,10 +33,7 @@ public class MovieDetailActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        final int id = item.getItemId();
 
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, SettingsActivity.class));

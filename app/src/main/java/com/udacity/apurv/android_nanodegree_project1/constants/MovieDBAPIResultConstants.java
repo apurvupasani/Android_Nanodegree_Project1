@@ -1,7 +1,7 @@
 package com.udacity.apurv.android_nanodegree_project1.constants;
 
 /**
- * Created by Apurv on 11/18/2016.
+ * CContains all the constants for parsing the JSON response from the Movie DB API
  */
 
 public final class MovieDBAPIResultConstants {

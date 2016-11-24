@@ -1,7 +1,7 @@
 package com.udacity.apurv.android_nanodegree_project1.constants;
 
 /**
- * Created by Apurv on 11/19/2016.
+ * Constants related to activities
  */
 
 public class ActivityConstants {

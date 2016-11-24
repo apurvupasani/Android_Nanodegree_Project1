@@ -21,7 +21,7 @@ import static com.udacity.apurv.android_nanodegree_project1.constants.DateConsta
 import static com.udacity.apurv.android_nanodegree_project1.constants.DateConstants.OUTPUT_DATE_FORMAT_STRING;
 
 /**
- * Created by Apurv on 11/18/2016.
+ * API used to read the JSON information and parse it appropriately
  */
 
 public class MovieDBJsonUtils {

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.udacity.apurv.android_nanodegree_project1.R;
 import com.udacity.apurv.android_nanodegree_project1.activities.MovieDetailActivity;
@@ -25,8 +27,10 @@ import com.udacity.apurv.android_nanodegree_project1.task.FetchMoviesTask;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.udacity.apurv.android_nanodegree_project1.constants.MovieDBAPIConstants.MOVIE_DB_ERROR_MESSAGE;
+
 /**
- * A placeholder fragment containing a simple view.
+ * This is the movie listing fragment used to list all the movies based on user preference in a grid view.
  */
 public class MovieListingFragment extends Fragment {
 
@@ -42,24 +46,27 @@ public class MovieListingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Create some dummy data for the ListView.  Here's a sample weekly forecast
 
         final List<MovieRecord> movieRecords = new ArrayList<MovieRecord>();
         movieArrayAdapter = new MovieArrayAdapter(getActivity(), R.layout.movie_listing_fragment, R.id.grid_item_movie_imageview, movieRecords);
 
-        View rootView = inflater.inflate(R.layout.movie_listing_fragment, container, false);
-        GridView gridView = (GridView) rootView.findViewById(R.id.gridview_movies);
+        final View rootView = inflater.inflate(R.layout.movie_listing_fragment, container, false);
+        final GridView gridView = (GridView) rootView.findViewById(R.id.gridview_movies);
         if (gridView != null && movieArrayAdapter != null) {
             gridView.setAdapter(movieArrayAdapter);
+            //For each item, go to appropriate detail page
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    MovieRecord record = movieArrayAdapter.getItem(position);
-                    Intent intent = new Intent(getActivity(), MovieDetailActivity.class)
+                    final MovieRecord record = movieArrayAdapter.getItem(position);
+                    final Intent intent = new Intent(getActivity(), MovieDetailActivity.class)
                             .putExtra(ActivityConstants.MOVIE_RECORD_INTENT, record);
                     startActivity(intent);
                 }
             });
+        } else {
+            Log.w(LOG_TAG, "Unable to display the grid.");
+            Toast.makeText(getContext(), MOVIE_DB_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
         }
         return rootView;
     }

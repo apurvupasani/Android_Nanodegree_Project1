@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by Apurv on 11/18/2016.
+ * Used to create a connection and fetch the API information
  */
 
 public class HttpConnectionUtils {

@@ -15,7 +15,7 @@ import com.udacity.apurv.android_nanodegree_project1.entities.MovieRecord;
 import java.util.List;
 
 /**
- * Created by Apurv on 11/15/2016.
+ * This is a customized adapter used for storing and presenting the image poster.
  */
 
 public class MovieArrayAdapter extends ArrayAdapter<MovieRecord> {

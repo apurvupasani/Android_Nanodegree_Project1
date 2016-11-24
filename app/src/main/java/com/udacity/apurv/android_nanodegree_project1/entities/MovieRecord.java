@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by Apurv on 11/15/2016.
+ * POJO for MovieRecord. Implements serializable as it needs to be passed around via Intents.
  */
 @Getter
 @Setter

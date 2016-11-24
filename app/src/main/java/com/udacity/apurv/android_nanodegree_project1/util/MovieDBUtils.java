@@ -12,7 +12,7 @@ import java.util.Map;
 import lombok.NonNull;
 
 /**
- * Created by Apurv on 11/18/2016.
+ * Contains method to create the Movie DB URL
  */
 
 public class MovieDBUtils {
